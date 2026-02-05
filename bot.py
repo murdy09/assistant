@@ -28,7 +28,7 @@ class TelegramBot:
                 "Обери режим або напиши повідомлення.",
                 reply_markup=self.get_keyboard(),
             )
-            print(f"Користувач {message.from_user.id} запустив бота") # логування
+            print(f"Користувач {message.from_user.id} запустив бота",flush=True) # логування
            
      
         @self.router.message(lambda m: m.text in ["👨‍💻 Програміст", "🧠 Асистент", "ℹ️ Режими"])
@@ -54,7 +54,7 @@ class TelegramBot:
                 return
                
            
-            print(f"Отримано {message.text[:50]}")
+            print(f"Отримано {message.text[:50]}", flush=True)
            
             await message.answer("⏳ Думаю...")
            
@@ -75,12 +75,9 @@ class TelegramBot:
             ],
             resize_keyboard=True
         )
-   
-    def run_bot(self):
-        """Запустити бота (викликається в потоці)"""
     
     async def start_polling(self):
-        print("Телеграм бот запущено!")
+        print("Телеграм бот запущено!", flush=True)
         await self.dp.start_polling(self.bot)
 
 
