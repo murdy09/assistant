@@ -23,7 +23,7 @@ async def main():
 
     BOT_TOKEN = os.getenv("BOT_TOKEN")
     if not BOT_TOKEN:
-        print("Token Bot Error")
+        print("Token Bot Error", flush = True)
 
 
     ai_client = GeminiClient()
@@ -33,3 +33,4 @@ async def main():
 if __name__ == "__main__":
     threading.Thread(target=run_flask, daemon=True).start()
     asyncio.run(main())
+
